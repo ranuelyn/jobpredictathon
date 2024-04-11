@@ -5,7 +5,7 @@ Bu repo, TechCareer ve Kariyer.net tarafından düzenlenen bir datathon yarışm
 
 # Veri Setleri
 
-Bu projede kullanılan veri setleri aşağıdaki bilgileri içerir:
+## Bu projede kullanılan veri setleri aşağıdaki bilgileri içerir:
 
 Aday logları
 CV detayları
