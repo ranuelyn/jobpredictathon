@@ -1,53 +1,63 @@
 # JobPredictaThon
 TechCareer &amp; Kariyet.net Datathon: JobPredictaThon
+(I am not authorized to share data due to competition confidentiality.)
 
-Bu repo, TechCareer ve Kariyer.net tarafından düzenlenen bir datathon yarışmasında kullanılan kodları açıklar. Projede, iş başvuruları ve aday detayları üzerinde ön işleme, temizleme ve analiz işlemleri gerçekleştirilmiştir.
+This repository explains the codes used in a datathon competition organized by TechCareer and Kariyer.net. The project involves preprocessing, cleaning, and analyzing data on job applications and candidate details.
 
-# Veri Setleri
+# Datasets
 
-## Bu projede kullanılan veri setleri aşağıdaki bilgileri içerir:
+The datasets used in this project include information on:
 
-Aday logları
-CV detayları
-İş detayları
-Test başvuruları
-Verilen veriler hakkında açıklamalar:
-data_cv_details icin:
+Candidate logs
+CV details
+Job details
+Test applications
+Descriptions for the provided data:
+For data_cv_details:
 jobseekerCity:
 
-Adayın yaşadığı şehri göstermekte olup, “** Diğer” seçmiş olanlar, yurt dışında ikamet eden (Kıbrıs hariç. Kıbrıs için Girne, Lefkoşa vb. il bazında kayıtlar görebilirsiniz) veya bu bilgiyi paylaşmak istememiş olan adaylardır.
+Indicates the city the candidate lives in. Candidates who have chosen "** Other" reside outside the country (excluding Cyprus. You may see records based on the city such as Girne, Lefkoşa for Cyprus) or do not wish to share this information.
 
 totalExperienceYear:
 
-Adayın sadece o pozisyonda değil, bu cv’si özelinde tüm iş deneyimlerinin toplam yılını temsil etmektedir. totalExperienceYear’ ı 0 olan adayların toplam tecrübesi 12 aydan az demektir.
+Represents the total years of experience of the candidate not just in that position, but across all job experiences in that CV. Candidates with a totalExperienceYear of 0 have less than 12 months of total experience.
 
-data_job_details için:
+For data_job_details:
 jobDescription:
 
-İşverenlerin girmiş oldukları free text alandır. Bu bakımdan, kullanım öncesi temizleme işlemleri gerekmektedir.
+A free text field entered by employers. Therefore, it requires cleaning before use.
 
 jobCity:
 
-Birden fazla il varsa, o ilan için birden fazla ilde çalışacak adaylar arıyorlar demektir.
+If there is more than one city listed, it means they are looking for candidates to work in multiple cities for that advertisement.
 
-minExperience - maxExperience için örnekler üzerinden açıklamalar
+Explanations for minExperience - maxExperience through examples:
 
-5 - 0 : en az 5 yıl tecrübesi olan adaylar.
-0 - 5 : en çok 5 yıl tecrübeli adaylar.
-99 - 99 : tecrübeli ya da tecrübesiz adaylar.
-98 - 98 : tecrübesiz adaylar.
-Bunlar dışındakilerin hepsi, o aralıktaki tecrübeyi göstermektedir.
-5 - 9 : en az 5 yıl, en çok 9 yıl tecrübeli adaylar.
-şeklinde.
+5 - 0: Candidates with at least 5 years of experience.
+0 - 5: Candidates with up to 5 years of experience.
+99 - 99: Candidates with or without experience.
+98 - 98: Candidates without experience.
+All others show the range of experience required.
+For example, 5 - 9: Candidates with at least 5 years, up to 9 years of experience.
+For data_aday_log:
+Information on the candidates and which advertisements they have applied to on specific dates is shared. You can create your training set from the entirety or any subset based on the logic you prefer.
 
-data_aday_log için:
-Adaylar ve o adayların hangi tarihlerde hangi ilanlara başvuru yaptıkları bilgileri paylaşılmıştır. Train setinizi isterseniz tamamından, isterseniz dilediğiniz mantığa göre oluşturduğunuz bir aralıktan alabilirsiniz.
+train.py: Python script that includes data loading, cleaning, and preprocessing steps.
+train2.py: Python script that includes sorting candidates by application dates and cleaning HTML content.
+train3.py: Python script that performs more detailed cleaning and preprocessing on text data.
 
-train.py: Veri yükleme, temizleme ve ön işleme adımlarını içeren Python scripti.
-train2.py: Adayların başvuru tarihlerine göre sıralanması ve HTML içeriğinin temizlenmesi gibi işlemleri içeren Python scripti.
-train3.py: Metin verisi üzerinde daha detaylı temizleme ve ön işleme işlemlerini gerçekleştiren Python scripti.
+# Solution Approach
 
-Katkıda Bulunma
+The solution method adopted in the project is to develop a recommendation system that suggests the most suitable job advertisements based on candidates' preferences and past applications. This recommendation system analyzes the characteristics of candidates and job advertisements, performing a frequency-based comparison. The system calculates the frequency of characteristics in advertisements that candidates have applied to or shown interest in the past and compares these details with new and existing job advertisements to make suggestions. This method facilitates the job-finding process for candidates by providing personalized job recommendations and helps employers reach the right candidates.
 
-Projeye katkıda bulunmak isterseniz, lütfen öncelikle projenin nasıl geliştirilebileceğine dair fikirlerinizi ya da planladığınız değişiklikleri tartışmak üzere bir issue açınız.
+# Setup
 
+Steps to use the project:
+
+Clone or download the repo.
+Install the required Python libraries:
+pip install pandas numpy beautifulsoup4 category_encoders scikit-learn
+Run the scripts to perform data preprocessing and analysis.
+
+# Contributing
+If you would like to contribute to the project, please first discuss your ideas or the changes you plan to make by opening an issue.
