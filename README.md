@@ -64,7 +64,6 @@ We welcome contributions to enhance the project's effectiveness. If you're inter
 Your insights and improvements are invaluable to the evolution of this project.
 
 ---
-I hope this repository serves as a valuable resource in the pursuit of streamlined job matching and application processes.
 ```css
-This format includes a comprehensive overview of the project, a detailed description of the datasets and scripts involved, clear instructions on getting started, and guidelines for contributing. Remember to replace placeholder texts with actual links or information relevant to your project as needed.
+I hope this repository serves as a valuable resource in the pursuit of streamlined job matching and application processes.
 ```
