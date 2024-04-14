@@ -1,63 +1,70 @@
-## JobPredictaThon
-TechCareer &amp; Kariyet.net Datathon: JobPredictaThon
-(I am not authorized to share data due to competition confidentiality.)
+# JobPredictaThon
 
-This repository explains the codes used in a datathon competition organized by TechCareer and Kariyer.net. The project involves preprocessing, cleaning, and analyzing data on job applications and candidate details.
+Welcome to the repository for the JobPredictaThon, a datathon competition hosted by TechCareer and Kariyer.net. This project is dedicated to processing, cleaning, and analyzing job application data and candidate details to develop a robust job recommendation system.
 
-## Datasets
+**Please note**: Due to competition confidentiality, we are not authorized to share the datasets used in this analysis.
 
-The datasets used in this project include information on:
+## Datasets Overview
 
-Candidate logs
-CV details
-Job details
-Test applications
-Descriptions for the provided data:
-For data_cv_details:
-jobseekerCity:
+The data encompasses various facets of job applications and candidate profiles:
 
-Indicates the city the candidate lives in. Candidates who have chosen "** Other" reside outside the country (excluding Cyprus. You may see records based on the city such as Girne, Lefkoşa for Cyprus) or do not wish to share this information.
+- **Candidate Logs**: Interaction of candidates with job listings.
+- **CV Details**: Information extracted from candidate resumes.
+- **Job Details**: Specifics of job listings posted by employers.
+- **Test Applications**: Sample submissions by candidates.
 
-totalExperienceYear:
+### Detailed Data Descriptions
 
-Represents the total years of experience of the candidate not just in that position, but across all job experiences in that CV. Candidates with a totalExperienceYear of 0 have less than 12 months of total experience.
+- `data_cv_details`:
+  - `jobseekerCity`: Reflects the residing city of the candidate. "** Other" indicates candidates living abroad or those who chose not to disclose their location.
+  - `totalExperienceYear`: The aggregate years of experience across all positions held, as listed in the CV.
 
-For data_job_details:
-jobDescription:
+- `data_job_details`:
+  - `jobDescription`: Employer-provided descriptions requiring data cleaning for analysis.
+  - `jobCity`: Lists one or more cities, indicating multi-location job vacancies.
+  - `minExperience` - `maxExperience`: Range indicators for required experience levels, with specific codes for candidates with any level of experience or those without experience.
 
-A free text field entered by employers. Therefore, it requires cleaning before use.
+- `data_aday_log`:
+  - Captures candidate applications to job postings, offering a chronological data trail for analysis.
 
-jobCity:
+### Scripts
 
-If there is more than one city listed, it means they are looking for candidates to work in multiple cities for that advertisement.
-
-Explanations for minExperience - maxExperience through examples:
-
-- 5 - 0: Candidates with at least 5 years of experience.
-- 0 - 5: Candidates with up to 5 years of experience.
-- 99 - 99: Candidates with or without experience.
-- 98 - 98: Candidates without experience.
-- All others show the range of experience required.
-For example, 5 - 9: Candidates with at least 5 years, up to 9 years of experience.
-For data_aday_log:
-Information on the candidates and which advertisements they have applied to on specific dates is shared. You can create your training set from the entirety or any subset based on the logic you prefer.
-
-train.py: Python script that includes data loading, cleaning, and preprocessing steps.
-train2.py: Python script that includes sorting candidates by application dates and cleaning HTML content.
-train3.py: Python script that performs more detailed cleaning and preprocessing on text data.
+- `train.py`: Initiates data loading, cleaning, and preprocessing.
+- `train2.py`: Sorts candidates by application dates and cleans HTML content.
+- `train3.py`: Conducts in-depth cleaning and preprocessing of text data.
 
 ## Solution Approach
 
-The solution method adopted in the project is to develop a recommendation system that suggests the most suitable job advertisements based on candidates' preferences and past applications. This recommendation system analyzes the characteristics of candidates and job advertisements, performing a frequency-based comparison. The system calculates the frequency of characteristics in advertisements that candidates have applied to or shown interest in the past and compares these details with new and existing job advertisements to make suggestions. This method facilitates the job-finding process for candidates by providing personalized job recommendations and helps employers reach the right candidates.
+The core of our project is a recommendation system tailored to match job seekers with the most suitable job postings. This system:
 
-## Setup
+- Analyzes candidate preferences and historical application data.
+- Employs frequency-based matching to correlate candidate attributes with job ad features.
+- Prioritizes personalized job suggestions to streamline the job search process.
+- Aids employers in attracting appropriate candidates efficiently.
 
-Steps to use the project:
+## Getting Started
 
-- Clone or download the repo.
-- Install the required Python libraries:
-- pip install pandas numpy beautifulsoup4 category_encoders scikit-learn
-- Run the scripts to perform data preprocessing and analysis.
+To utilize this project:
+
+1. Clone or download this repository.
+2. Install the necessary Python libraries:
+
+```bash
+pip install pandas numpy beautifulsoup4 category_encoders scikit-learn
+```
+
+Execute the provided scripts for data preprocessing and analytical processing.
 
 ## Contributing
-If you would like to contribute to the project, please first discuss your ideas or the changes you plan to make by opening an issue.
+We welcome contributions to enhance the project's effectiveness. If you're interested in contributing, please:
+
+- Open an issue to discuss your proposed changes.
+- Fork the repository and commit your contributions.
+- Submit a pull request with a clear description of your improvements.
+Your insights and improvements are invaluable to the evolution of this project.
+
+---
+I hope this repository serves as a valuable resource in the pursuit of streamlined job matching and application processes.
+```css
+This format includes a comprehensive overview of the project, a detailed description of the datasets and scripts involved, clear instructions on getting started, and guidelines for contributing. Remember to replace placeholder texts with actual links or information relevant to your project as needed.
+```
